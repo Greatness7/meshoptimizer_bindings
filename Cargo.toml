@@ -1,0 +1,26 @@
+[package]
+name = "meshoptimizer"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+strip = true
+
+[lib]
+name = "meshoptimizer"
+crate-type = ["cdylib"]
+
+[dependencies]
+meshopt = "0.2.1"
+numpy = "0.21.0"
+
+[dependencies.pyo3]
+version = "0.21.1"
+default-features = false
+features = ["abi3-py39", "extension-module", "macros"]
+
+[build-dependencies]
+pyo3-build-config = "0.21.1"
