@@ -17,10 +17,12 @@ jobs:
     needs: setup
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-13, macos-14, ubuntu-latest, windows-latest]
         include:
-          - os: macos-latest
-            archive: macos-latest.zip
+          - os: macos-13
+            archive: macos-13-x86_64.zip
+          - os: macos-14
+            archive: macos-14-arm64.zip
           - os: ubuntu-latest
             archive: ubuntu-latest.zip
           - os: windows-latest
