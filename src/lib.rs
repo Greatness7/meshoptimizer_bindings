@@ -27,8 +27,8 @@ fn optimize<'py>(
     let vertex_stride = vertices.strides()[0] as usize;
 
     unsafe {
-        let vertex_remap = PyArray1::new_bound(py, vertex_count, false);
-        let triangles_opt = PyArray2::new_bound(py, triangles.dims(), false);
+        let vertex_remap = PyArray1::new(py, vertex_count, false);
+        let triangles_opt = PyArray2::new(py, triangles.dims(), false);
 
         meshopt_optimizeVertexCache(
             triangles_opt.data(),
